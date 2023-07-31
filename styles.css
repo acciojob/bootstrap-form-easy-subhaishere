@@ -1,2 +1,13 @@
+/* Optional custom CSS to style the form and add some spacing */
+.container {
+  max-width: 500px;
+}
 
-/* Your CSS Code here. */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.invalid-feedback {
+  display: none;
+  color: red;
+}
