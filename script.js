@@ -1,65 +1,72 @@
-// JavaScript code to validate the form on submission
-$(document).ready(function () {
-  $("#internship-form").on("submit", function (event) {
+$(document).ready(function() {
+  // Form submission
+  $('#application-form').submit(function(event) {
     event.preventDefault();
-
-    // Reset the invalid feedback messages
-    $(".invalid-feedback").hide();
-
-    // Validate each input field
-    let valid = true;
-
-    const firstName = $("#first-name-input").val();
-    if (!firstName) {
-      $("#first-name-input").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    // Reset validation classes
+    $('.form-control').removeClass('is-invalid');
+    $('.invalid-feedback').hide();
+    
+    // Check each field for validation
+    let isValid = true;
+    
+    if ($('#first-name-input').val().trim() === '') {
+      $('#first-name-input').addClass('is-invalid');
+      $('#first-name-input').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    const lastName = $("#last-name-input").val();
-    if (!lastName) {
-      $("#last-name-input").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if ($('#last-name-input').val().trim() === '') {
+      $('#last-name-input').addClass('is-invalid');
+      $('#last-name-input').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    const email = $("#email-input").val();
-    if (!email || !isValidEmail(email)) {
-      $("#email-input").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if ($('#email-input').val().trim() === '') {
+      $('#email-input').addClass('is-invalid');
+      $('#email-input').next('.invalid-feedback').show();
+      isValid = false;
+    } else if (!isValidEmail($('#email-input').val().trim())) {
+      $('#email-input').addClass('is-invalid');
+      $('#email-input').next('.invalid-feedback').text('Please enter a valid email address.').show();
+      isValid = false;
     }
-
-    const college = $("#college-input").val();
-    if (!college) {
-      $("#college-input").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if ($('#college-input').val().trim() === '') {
+      $('#college-input').addClass('is-invalid');
+      $('#college-input').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    const graduationYear = $("#graduation-year-select").val();
-    if (!graduationYear) {
-      $("#graduation-year-select").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if ($('#roll-no-input').val().trim() === '') {
+      $('#roll-no-input').addClass('is-invalid');
+      $('#roll-no-input').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    const rollNo = $("#roll-no-input").val();
-    if (!rollNo) {
-      $("#roll-no-input").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if ($('#graduation-year-input').val() === '') {
+      $('#graduation-year-input').addClass('is-invalid');
+      $('#graduation-year-input').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    const conditions = $("#conditions-checkbox").prop("checked");
-    if (!conditions) {
-      $("#conditions-checkbox").siblings(".invalid-feedback").show();
-      valid = false;
+    
+    if (!$('#conditions-checkbox').is(':checked')) {
+      $('#conditions-checkbox').addClass('is-invalid');
+      $('#conditions-checkbox').next('.invalid-feedback').show();
+      isValid = false;
     }
-
-    // If the form is valid, submit it
-    if (valid) {
-      this.submit();
+    
+    // If all fields are valid, submit the form
+    if (isValid) {
+      alert('Form submitted successfully!');
+      // Additional actions can be performed here
     }
   });
-
-  // Function to check the email validity using a regular expression
+  
+  // Email validation function
   function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    // Simple email validation regex pattern
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
   }
 });

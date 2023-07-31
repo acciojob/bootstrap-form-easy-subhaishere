@@ -1,80 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>AccioJob Internship Form</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" />
-  <style>
-    .invalid-feedback {
-      display: none;
-    }
-
-    .is-invalid ~ .invalid-feedback {
-      display: block;
-    }
-  </style>
+  <title>Internship Application Form</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 </head>
 <body>
-  <div class="container mt-5">
-    <h4 class="text-center mb-4">AccioJob Internship Form</h4>
-    <form>
-      <div class="mb-3">
-        <label for="first-name-input" class="form-label">First Name</label>
+  <div class="container">
+    <h2>Internship Application Form</h2>
+    <form id="application-form">
+      <div class="form-group">
+        <label for="first-name-input">First Name:</label>
         <input type="text" class="form-control" id="first-name-input" required>
-        <div class="invalid-feedback">
-          Please enter your first name.
-        </div>
+        <div class="invalid-feedback">Please enter your first name.</div>
       </div>
-      <div class="mb-3">
-        <label for="last-name-input" class="form-label">Last Name</label>
+      <div class="form-group">
+        <label for="last-name-input">Last Name:</label>
         <input type="text" class="form-control" id="last-name-input" required>
-        <div class="invalid-feedback">
-          Please enter your last name.
-        </div>
+        <div class="invalid-feedback">Please enter your last name.</div>
       </div>
-      <div class="mb-3">
-        <label for="email-input" class="form-label">Email</label>
+      <div class="form-group">
+        <label for="email-input">Email:</label>
         <input type="email" class="form-control" id="email-input" required>
-        <div class="invalid-feedback">
-          Please enter a valid email address.
-        </div>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
       </div>
-      <div class="mb-3">
-        <label for="college-input" class="form-label">College Name</label>
+      <div class="form-group">
+        <label for="college-input">College Name:</label>
         <input type="text" class="form-control" id="college-input" required>
-        <div class="invalid-feedback">
-          Please enter your college name.
-        </div>
+        <div class="invalid-feedback">Please enter your college name.</div>
       </div>
-      <div class="mb-3">
-        <label for="roll-no-input" class="form-label">Roll No</label>
+      <div class="form-group">
+        <label for="roll-no-input">Roll No:</label>
         <input type="text" class="form-control" id="roll-no-input" required>
-        <div class="invalid-feedback">
-          Please enter your roll no.
-        </div>
+        <div class="invalid-feedback">Please enter your roll number.</div>
       </div>
-      <div class="mb-3
-		          <label for="grad-year-select" class="form-label">Graduation Year</label>
-        <select class="form-select" id="grad-year-select" required>
-          <option selected disabled value="">Choose...</option>
-          <option>2020</option>
-          <option>2021</option>
-          <option>2022</option>
-          <option>2023</option>
+      <div class="form-group">
+        <label for="graduation-year-input">Graduation Year:</label>
+        <select class="form-control" id="graduation-year-input" required>
+          <option value="">Select</option>
+          <option value="2020">2020</option>
+          <option value="2021">2021</option>
+          <option value="2022">2022</option>
+          <option value="2023">2023</option>
         </select>
-        <div class="invalid-feedback">
-          Please select your graduation year.
-        </div>
+        <div class="invalid-feedback">Please select your graduation year.</div>
       </div>
-      <div class="mb-3 form-check">
+      <div class="form-check">
         <input type="checkbox" class="form-check-input" id="conditions-checkbox" required>
         <label class="form-check-label" for="conditions-checkbox">I agree to the terms and conditions</label>
-        <div class="invalid-feedback">
-          You must agree to the terms and conditions.
-        </div>
+        <div class="invalid-feedback">You must agree to the terms and conditions.</div>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
